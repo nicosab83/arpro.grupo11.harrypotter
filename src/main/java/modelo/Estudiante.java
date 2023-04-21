@@ -94,6 +94,5 @@ public class Estudiante {
         {
             throw new RuntimeException(ex);
         }
-
     }
 }
