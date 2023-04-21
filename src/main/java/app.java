@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class app {
-    public static void main(String[] args){
+    public static void main(String[] args) {
+
         Scanner miEscanner = new Scanner(System.in);
 
         // Solo interfaz de usuario
@@ -16,7 +17,8 @@ public class app {
 
         // Ingrese del nombre del archivo de datos csv a procesar
         System.out.print("Ingrese el nombre del archivo de datos: ");
-        String nombreArchivo = miEscanner.nextLine();
+        String nombreArchivo = "HarryPotter-data.csv"; //miEscanner.nextLine();
+        //String nombreArchivo = miEscanner.nextLine();
 
         System.out.println("\nProcesando archivo...");
         // Procesar el archivo de texto
@@ -33,19 +35,28 @@ public class app {
         // Mostrar al usuario que el archivo se procesó.
         System.out.println("Proceso finalizado, " + lista.size() + " estudiantes leídos.");
 
-//        System.out.println("\nLista de Estudiantes:");
-//        for(Estudiante e : lista)
-//            System.out.println(e);
+
+        System.out.println("\nLista de Estudiantes:");
+        for(Estudiante e : lista)
+            System.out.println(e);
+
+        // TODO: RESOLUCION NICO
+        System.out.println("\nLista de Estudiantes No Humanos:");
+        for(Estudiante e : lista)
+            if(!e.getEspecie().trim().equals("Human")){
+                System.out.println(e);
+            }
 
         Hogwarts hogwarts = new Hogwarts();
-        for(Estudiante e : lista){
+        for (Estudiante e : lista) {
             hogwarts.agregarEstudiante(e);
         }
 
-        System.out.println("Cantidad de Estudiantes por casa: ");
-        for (String casa : new String[] {"Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"}){
+        System.out.println("\nCantidad de Estudiantes por casa: ");
+        for (String casa : new String[]{"Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"}) {
             System.out.println("Casa: " + casa + " ==> " + hogwarts.getCasa(casa).getCantidadEstudiantes() + " estudiantes");
         }
+
 
     }
 }
