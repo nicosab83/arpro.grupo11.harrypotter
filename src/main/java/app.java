@@ -14,7 +14,7 @@ public class app {
         System.out.println("=============================");
         System.out.println();
 
-        // Ingrese del nombre del archivo de datos csv a procesar
+        // Ingrese del nombre del archivo de datos csv a procesar Ej: "HarryPotter-data.csv"
         System.out.print("Ingrese el nombre del archivo de datos: ");
         String nombreArchivo = miEscanner.nextLine();
 
