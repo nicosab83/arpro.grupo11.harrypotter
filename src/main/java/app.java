@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class app {
+
     public static void main(String[] args) {
 
         Scanner miEscanner = new Scanner(System.in);
@@ -30,22 +31,15 @@ public class app {
         //      2.3 Creamos el objeto transformando las cadenas de acuerdo con los atributos
         //      2.4 Agregamos el objeto a la lista resultante.
         ProcesadorArchivoCsv procArchivo = new ProcesadorArchivoCsv(nombreArchivo);
-//        ArrayList<Estudiante> lista = procArchivo.procesarArchivo();
+        //        ArrayList<Estudiante> lista = procArchivo.procesarArchivo();
         ArrayList<Estudiante> lista = procArchivo.procesarArchivoConValidacion();
         // Mostrar al usuario que el archivo se procesó.
         System.out.println("Proceso finalizado, " + lista.size() + " estudiantes leídos.");
 
 
         System.out.println("\nLista de Estudiantes:");
-        for(Estudiante e : lista)
+        for (Estudiante e : lista)
             System.out.println(e);
-
-        // TODO: RESOLUCION NICO
-        System.out.println("\nLista de Estudiantes No Humanos:");
-        for(Estudiante e : lista)
-            if(!e.getEspecie().trim().equals("Human")){
-                System.out.println(e);
-            }
 
         Hogwarts hogwarts = new Hogwarts();
         for (Estudiante e : lista) {
@@ -57,6 +51,8 @@ public class app {
             System.out.println("Casa: " + casa + " ==> " + hogwarts.getCasa(casa).getCantidadEstudiantes() + " estudiantes");
         }
 
-
+        hogwarts.searchEstudiantesNoHumanos();
+        
     }
+
 }

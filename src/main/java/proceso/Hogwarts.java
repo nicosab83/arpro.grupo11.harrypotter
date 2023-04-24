@@ -3,7 +3,6 @@ package proceso;
 import modelo.Casa;
 import modelo.Estudiante;
 
-import javax.swing.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,11 +24,18 @@ public class Hogwarts {
         }
         else
             throw new RuntimeException("Error: El nombre de la casa no existe.");
-
     }
 
     public Casa getCasa(String nombre){
         return casas.get(nombre);
+    }
+
+    public void searchEstudiantesNoHumanos(){
+        System.out.println("\n\n=============================");
+        System.out.println("ESTUDIANTES NO HUMANOS ENCONTRADOS:");
+        casas.forEach((k,v) -> {
+            v.searchEstudiantesNoHumanos();
+        });
     }
 
 }

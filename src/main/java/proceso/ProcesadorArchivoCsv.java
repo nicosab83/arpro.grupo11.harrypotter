@@ -109,7 +109,6 @@ public class ProcesadorArchivoCsv {
     private String[] separarLinea(String linea) {
         if (!linea.equals("") && !linea.equals("\n"))
             return linea.split("\\,");
-
         return new String[0];
 
     }
