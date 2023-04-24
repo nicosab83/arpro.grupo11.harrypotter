@@ -48,4 +48,14 @@ public class Hogwarts {
                 System.out.println(e);
     }
 
+    public void getEstudiantes(){
+        System.out.println("\n\n=============================\nESTUDIANTES DE HOGWARTS:");
+        ArrayList<Estudiante> resultados = new ArrayList<>();
+        casas.forEach((k,v) -> {
+            resultados.addAll(v.getEstudiantes());
+        });
+        for (Estudiante e : resultados)
+            System.out.println(e);
+    }
+
 }

@@ -35,6 +35,8 @@ public class Casa {
             throw new RuntimeException("Nombre de casa inválido. [" + e.getNombreCasa() + "]");
     }
 
+    public ArrayList<Estudiante> getEstudiantes(){ return estudiantes; }
+
     public ArrayList<Estudiante> searchEstudiantesNoHumanos(){
         ArrayList<Estudiante> searchResult = new ArrayList<>();
         for (Estudiante e : this.estudiantes)

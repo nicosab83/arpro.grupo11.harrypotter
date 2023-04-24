@@ -36,28 +36,64 @@ public class app {
         }
 
         /** 1. Un listado con cada casa y la cantidad de estudiantes agregados a dicha casa. **/
-        /** SOLUCIÓN PROFESOR: **/
-//        System.out.println("\nCantidad de Estudiantes por casa: ");
-//        for (String casa : new String[]{"Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"}) {
-//            System.out.println("Casa: " + casa + " ==> " + hogwarts.getCasa(casa).getCantidadEstudiantes() + " estudiantes");
-//        }
+        /** 1.1 - Solución by profesor. **/
+        //        System.out.println("\nCantidad de Estudiantes por casa: ");
+        //        for (String casa : new String[]{"Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"}) {
+        //            System.out.println("Casa: " + casa + " ==> " + hogwarts.getCasa(casa).getCantidadEstudiantes() + " estudiantes");
+        //        }
 
-        /** SOLUCIÓN EQUIPO: **/
+        /** 1.2 - Solución by Grupo 11. **/
         hogwarts.cantidadEstudiantesPorCasa();
 
 
         /** 2. Un listado de todos aquellos estudiantes no humanos independientemente de la casa en la que se encuentren.**/
-        /** SOLUCIÓN Solución inicial trabajando con la lista de estudiantes. **/
-//        System.out.println("\n\n=============================");
-//        System.out.println("ESTUDIANTES NO HUMANOS ENCONTRADOS:");
-//        for (Estudiante e : lista)
-//            if (!e.getEspecie().toUpperCase().trim().equals("HUMAN")) {
-//                System.out.println(e);
-//            }
+        /** 2.1 - Solución inicial trabajando con la lista de estudiantes. **/
+        //        System.out.println("\n\n=============================");
+        //        System.out.println("ESTUDIANTES NO HUMANOS ENCONTRADOS:");
+        //        for (Estudiante e : lista)
+        //            if (!e.getEspecie().toUpperCase().trim().equals("HUMAN")) {
+        //                System.out.println(e);
+        //            }
 
-        /** Solución delegando en objetos Escuela -> Casa. **/
+        /** 2.2 - Solución delegando en objetos Escuela -> Casa. **/
         hogwarts.printEstudiantesNoHumanos();
-        
+
+
+        /** LISTAR TODOS LOS ESTUDIANTES DE HOGWARTS DESDE LAS CASAS. **/
+        hogwarts.getEstudiantes();
+
     }
+
+/*
+    private void menuDeOpciones(){
+
+        int opcion = -1;
+        while(opcion != 0){
+            System.out.println("\n\nMENU DE OPCIONES: \n----------------------------------");
+            System.out.println("1. Lista de casas con cantidad de estudiantes.");
+            System.out.println("2. Lista de estudiantes de Hogwarts no humanos");
+            System.out.println("3. Lista de todos los estudiantes de Hogwarts");
+            System.out.println("0. Salir");
+            System.out.print("\nSeleccione una de las opciones: ");
+            opcion = miEscanner.nextInt();
+
+            switch(opcion){
+                case 1:
+                    hogwarts.cantidadEstudiantesPorCasa();
+                    break;
+                case 2:
+                    hogwarts.printEstudiantesNoHumanos();
+                    break;
+                case 3:
+                    hogwarts.getEstudiantes();
+                    break;
+                case 0:
+                    System.out.println("Adios....!");
+                    break;
+                default:
+                    System.err.println("Opción invalida!.");
+            }
+        }
+*/
 
 }
