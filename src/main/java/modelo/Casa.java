@@ -35,22 +35,14 @@ public class Casa {
             throw new RuntimeException("Nombre de casa inválido. [" + e.getNombreCasa() + "]");
     }
 
-    // TODO: Resuelto punto 2 delegando.
-    public void searchEstudiantesNoHumanos(){
+    public ArrayList<Estudiante> searchEstudiantesNoHumanos(){
+        ArrayList<Estudiante> searchResult = new ArrayList<>();
         for (Estudiante e : this.estudiantes)
             if (!e.getEspecie().trim().equals("Human")) {
-                System.out.println(e);
+                //System.out.println(e);
+                searchResult.add(e);
             }
+        return searchResult;
     }
-
-//    public ArrayList<Estudiante> searchEstudiante(){
-//        ArrayList<Estudiante> searchResult = new ArrayList<>();
-//        for (Estudiante e : this.estudiantes)
-//            if (!e.getEspecie().trim().equals("Human")) {
-//                System.out.println(e);
-//                searchResult.add(e);
-//            }
-//        return searchResult;
-//    }
 
 }

@@ -30,11 +30,13 @@ public class Hogwarts {
         return casas.get(nombre);
     }
 
-    public void searchEstudiantesNoHumanos(){
+    public void printEstudiantesNoHumanos(){
         System.out.println("\n\n=============================");
         System.out.println("ESTUDIANTES NO HUMANOS ENCONTRADOS:");
         casas.forEach((k,v) -> {
-            v.searchEstudiantesNoHumanos();
+            System.out.println(k + " - " + v.searchEstudiantesNoHumanos());
+            //v.searchEstudiantesNoHumanos();
+
         });
     }
 

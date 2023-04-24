@@ -37,9 +37,9 @@ public class app {
         System.out.println("Proceso finalizado, " + lista.size() + " estudiantes leídos.");
 
 
-        System.out.println("\nLista de Estudiantes:");
-        for (Estudiante e : lista)
-            System.out.println(e);
+//        System.out.println("\nLista de Estudiantes:");
+//        for (Estudiante e : lista)
+//            System.out.println(e);
 
         Hogwarts hogwarts = new Hogwarts();
         for (Estudiante e : lista) {
@@ -51,7 +51,16 @@ public class app {
             System.out.println("Casa: " + casa + " ==> " + hogwarts.getCasa(casa).getCantidadEstudiantes() + " estudiantes");
         }
 
-        hogwarts.searchEstudiantesNoHumanos();
+        // TODO: Solución inicial trabajando con la lista de estudiantes.
+        System.out.println("\n\n=============================");
+        System.out.println("ESTUDIANTES NO HUMANOS ENCONTRADOS:");
+        for (Estudiante e : lista)
+            if (!e.getEspecie().trim().equals("Human")) {
+                System.out.println(e);
+            }
+
+        // TODO: Solución delegando en objetos Escuela -> Casa.
+        hogwarts.printEstudiantesNoHumanos();
         
     }
 
