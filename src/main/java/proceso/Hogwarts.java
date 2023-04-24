@@ -3,6 +3,7 @@ package proceso;
 import modelo.Casa;
 import modelo.Estudiante;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,14 +31,21 @@ public class Hogwarts {
         return casas.get(nombre);
     }
 
-    public void printEstudiantesNoHumanos(){
-        System.out.println("\n\n=============================");
-        System.out.println("ESTUDIANTES NO HUMANOS ENCONTRADOS:");
+    public void cantidadEstudiantesPorCasa(){
+        System.out.println("\n\n=============================\nESTUDIANTES POR CASA:");
         casas.forEach((k,v) -> {
-            System.out.println(k + " - " + v.searchEstudiantesNoHumanos());
-            //v.searchEstudiantesNoHumanos();
-
+            System.out.println(k + ": " + v.getCantidadEstudiantes());
         });
+    }
+
+    public void printEstudiantesNoHumanos(){
+        System.out.println("\n\n=============================\nESTUDIANTES NO HUMANOS ENCONTRADOS:");
+        ArrayList<Estudiante> resultados = new ArrayList<>();
+        casas.forEach((k,v) -> {
+            resultados.addAll(v.searchEstudiantesNoHumanos());
+        });
+        for (Estudiante e : resultados)
+                System.out.println(e);
     }
 
 }

@@ -38,7 +38,7 @@ public class Casa {
     public ArrayList<Estudiante> searchEstudiantesNoHumanos(){
         ArrayList<Estudiante> searchResult = new ArrayList<>();
         for (Estudiante e : this.estudiantes)
-            if (!e.getEspecie().trim().equals("Human")) {
+            if (!e.getEspecie().toUpperCase().trim().equals("HUMAN")) {
                 //System.out.println(e);
                 searchResult.add(e);
             }

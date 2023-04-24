@@ -11,29 +11,18 @@ public class app {
 
         Scanner miEscanner = new Scanner(System.in);
 
-        // Solo interfaz de usuario
-        System.out.println("Cargador de Datos de Hogwards");
-        System.out.println("=============================");
-        System.out.println();
+        System.out.println("Cargador de Datos de Hogwards\n=============================\n\n");
 
-        // Ingrese del nombre del archivo de datos csv a procesar
         System.out.print("Ingrese el nombre del archivo de datos: ");
-        String nombreArchivo = "HarryPotter-data.csv"; //miEscanner.nextLine();
-        //String nombreArchivo = miEscanner.nextLine();
+        String nombreArchivo = miEscanner.nextLine();
+        if(nombreArchivo == ""){
+            System.out.print("\u001B[33mSe toma nombre del archivo por defecto!\u001B[0m\n\n");
+            nombreArchivo = "HarryPotter-data.csv";
+        }
 
         System.out.println("\nProcesando archivo...");
-        // Procesar el archivo de texto
-        // 1 Abrir el archivo
-        // 2 Leer el archivo línea por línea
-        //      Para cada línea
-        //      2.1 Separar porciones separadas por coma
-        //      2.2 Validamos que la línea corresponda a un objeto a crear
-        //      2.3 Creamos el objeto transformando las cadenas de acuerdo con los atributos
-        //      2.4 Agregamos el objeto a la lista resultante.
         ProcesadorArchivoCsv procArchivo = new ProcesadorArchivoCsv(nombreArchivo);
-        //        ArrayList<Estudiante> lista = procArchivo.procesarArchivo();
         ArrayList<Estudiante> lista = procArchivo.procesarArchivoConValidacion();
-        // Mostrar al usuario que el archivo se procesó.
         System.out.println("Proceso finalizado, " + lista.size() + " estudiantes leídos.");
 
 
@@ -46,20 +35,27 @@ public class app {
             hogwarts.agregarEstudiante(e);
         }
 
-        System.out.println("\nCantidad de Estudiantes por casa: ");
-        for (String casa : new String[]{"Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"}) {
-            System.out.println("Casa: " + casa + " ==> " + hogwarts.getCasa(casa).getCantidadEstudiantes() + " estudiantes");
-        }
+        /** 1. Un listado con cada casa y la cantidad de estudiantes agregados a dicha casa. **/
+        /** SOLUCIÓN PROFESOR: **/
+//        System.out.println("\nCantidad de Estudiantes por casa: ");
+//        for (String casa : new String[]{"Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"}) {
+//            System.out.println("Casa: " + casa + " ==> " + hogwarts.getCasa(casa).getCantidadEstudiantes() + " estudiantes");
+//        }
 
-        // TODO: Solución inicial trabajando con la lista de estudiantes.
-        System.out.println("\n\n=============================");
-        System.out.println("ESTUDIANTES NO HUMANOS ENCONTRADOS:");
-        for (Estudiante e : lista)
-            if (!e.getEspecie().trim().equals("Human")) {
-                System.out.println(e);
-            }
+        /** SOLUCIÓN EQUIPO: **/
+        hogwarts.cantidadEstudiantesPorCasa();
 
-        // TODO: Solución delegando en objetos Escuela -> Casa.
+
+        /** 2. Un listado de todos aquellos estudiantes no humanos independientemente de la casa en la que se encuentren.**/
+        /** SOLUCIÓN Solución inicial trabajando con la lista de estudiantes. **/
+//        System.out.println("\n\n=============================");
+//        System.out.println("ESTUDIANTES NO HUMANOS ENCONTRADOS:");
+//        for (Estudiante e : lista)
+//            if (!e.getEspecie().toUpperCase().trim().equals("HUMAN")) {
+//                System.out.println(e);
+//            }
+
+        /** Solución delegando en objetos Escuela -> Casa. **/
         hogwarts.printEstudiantesNoHumanos();
         
     }
